@@ -20,16 +20,7 @@ class CarreraController{
         require_once 'view/header.php';
         require_once 'view/tecnicatura.php';
         require_once 'view/footer.php';
-    }
-
-    /*
-    public function jsonIng()
-    {
-        $array = Carrera::getPlan(1);
-        $json_array = json($array);
-        echo json_encode($json_array);
-    }  
-    */  
+    } 
 
     public function jsonIng()
     {
@@ -38,8 +29,10 @@ class CarreraController{
         for ($i=0; $i<count($array); $i++) 
         {
             $json_array[] = array(
+                                "idPlan"    => $array[$i]["idPlan"],
                                 "codigo"    => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["codigo"]),
                                 "asignatura"  => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["asignatura"]),
+                                "anio"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["anio"]),
                                 "regimen"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["regimen"]),
                                 "horasPrimerCuatrimestre"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["horasPrimerCuatrimestre"]),
                                 "horasSegundoCuatrimestre"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["horasSegundoCuatrimestre"]),

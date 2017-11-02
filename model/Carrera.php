@@ -44,7 +44,7 @@ class Carrera{
     static function getPlan($idCarrera){
         try{
             $mdb = DataBase::getDb();
-            $sql = "SELECT p.codigo, m.asignatura, p.regimen, p.horasPrimerCuatrimestre, p.horasSegundoCuatrimestre, p.horasAnuales, m.idMateria
+            $sql = "SELECT p.idPlan, p.codigo, m.asignatura, p.regimen, p.horasPrimerCuatrimestre, p.anio, p.horasSegundoCuatrimestre, p.horasAnuales, m.idMateria
                     FROM carrera c
                     INNER JOIN plan p ON p.idCarrera = c.idCarrera
                     INNER JOIN materia m ON p.idMateria = m.idMateria

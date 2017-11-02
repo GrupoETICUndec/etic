@@ -69,17 +69,19 @@
 
                 <table class="table table-striped">
                     <tr>
-                        <th><a ng-click="columna='codigo'; reverse = !reverse">Codigo</a></th>
-                        <th><a ng-click="columna='asignatura'; reverse = !reverse">Asignatura</a></th>
-                        <th><a ng-click="columna='regimen'; reverse = !reverse">Regimen</a></th>
-                        <th><a ng-click="columna='hsCuat1'; reverse = !reverse">Hs Cuat 1</a></th>
-                        <th><a ng-click="columna='hsCuat2'; reverse = !reverse">Hs Cuat 2</a></th>
-                        <th><a ng-click="columna='hsCuatAn'; reverse = !reverse">Hs Anuales</a></th>
+                        <th>Codigo</th>
+                        <th>Asignatura</th>
+                        <th>Año</th>
+                        <th>Regimen</th>
+                        <th>Hs Cuat 1</th>
+                        <th>Hs Cuat 2</th>
+                        <th>Hs Anuales</th>
                     </tr>
-
-                    <tr ng-repeat="mat in materias | filter:busqueda | orderBy:columna:reverse">
-                        <td>{{mat.codigo}}</td>
-                        <td><a href="index.php?c=materia&a=materia&cod={{mat.idMateria}}">{{mat.asignatura}}</a></td>
+                    
+                    <tr ng-repeat="mat in materias | filter:busqueda ">
+                        <td >{{mat.codigo}}</td>
+                        <td><a href="index.php?c=materia&a=materia&cod={{mat.idPlan}}">{{mat.asignatura}}</a></td>
+                        <td>{{mat.anio}}</td>
                         <td>{{mat.regimen}}</td>
                         <td>{{mat.horasPrimerCuatrimestre}}</td>
                         <td>{{mat.horasSegundoCuatrimestre}}</td>

@@ -8,6 +8,7 @@
     <!--First columnn-->
     <div class="col-lg-4">
         <!--Card-->
+        <a href="index.php?c=carrera&a=ingenieria">
         <div class="card wow fadeIn" data-wow-delay="0.2s">
 
             <!--Card image-->
@@ -23,6 +24,7 @@
             </div>
 
         </div>
+        </a>
         <!--/.Card-->
     </div>
     <!--First columnn-->
@@ -30,6 +32,7 @@
     <!--Second columnn-->
     <div class="col-lg-4">
         <!--Card-->
+        <a href="index.php?c=carrera&a=licenciatura">
         <div class="card wow fadeIn" data-wow-delay="0.4s">
 
             <!--Card image-->
@@ -45,6 +48,7 @@
             </div>
 
         </div>
+        </a>
         <!--/.Card-->
 
     </div>
@@ -53,9 +57,12 @@
     <!--Third columnn-->
     <div class="col-lg-4">
         <!--Card-->
+        <a href="index.php?c=carrera&a=tecnicatura">
+
         <div class="card wow fadeIn" data-wow-delay="0.6s">
 
             <!--Card image-->
+            
             <img class="img-fluid" src="view/images/tudaw.jpg" alt="Card image cap">
 
             <!--Card content-->
@@ -68,6 +75,7 @@
             </div>
 
         </div>
+        </a>
         <!--/.Card-->
     </div>
     <!--Third columnn-->

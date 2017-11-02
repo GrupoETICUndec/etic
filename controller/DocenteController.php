@@ -14,7 +14,9 @@ class DocenteController{
         if($docente[0]["telefono"] == null){
             $docente[0]["telefono"] = "Informacion no disponible";
         }
-        if($docente[0]["descripcion"] == null){$docente[0]["descripcion"] = "Informacion no disponible";}
+        if($docente[0]["descripcion"] == null){
+            $docente[0]["descripcion"] = "Informacion no disponible";
+        }
         require_once 'view/header.php';
         require_once 'view/perfil.php';
         require_once 'view/footer.php';

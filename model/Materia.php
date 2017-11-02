@@ -5,13 +5,12 @@ class Materia
     private $idMateria;
     private $nombre;
     
-    
-    function __construct($idMateria, $nombre)
+   
+    function __construct($idMateria)
     {
-        $this->setIdMateria($idMateria);
-        $this->setNombre($nombre);
+        $this->idMateria=$idMateria;
     }
-
+ 
 
     function getIdMateria()
     {
@@ -61,67 +60,87 @@ class Materia
         } catch (PDOException $e) {
             echo "ERROR en getAll(".$sql.")";
         }
-    
+    }
 
 
-        function getCorrelatividades()
-        {
-            try {
-                $mdb =  DataBase::getDb();
-                $sql = "SELECT p.codigo,m2.asignatura AS correlativa, tc.descripcion
-                    FROM materia m
-                    INNER JOIN plan p ON m.idMateria = p.idMateria
-                    INNER JOIN correlatividad c ON p.idPlan = c.idPlan
+    function getCorrelatividades($idMateria)
+    {
+        try {
+            $mdb =  DataBase::getDb();
+            $sql = "SELECT p.codigo,m.asignatura AS correlativa, tc.descripcion
+                    FROM correlatividad c
+                    INNER JOIN plan p ON c.idPlan = p.idPlan
+                    INNER JOIN  materia m ON p.idMateria = m.idMateria
                     INNER JOIN tipoCorrelatividad tc ON c.tipoCorrelatividad = tc.idCorrelatividad
-                    INNER JOIN materia m2 ON c.esCorrelativaDe = m2.idMateria
-                    WHERE m.idMateria =".$this->getIdMateria();
-                $sta = $mdb->prepare($sql);
-                $sta->execute();
-                $resultado = $sta->fetchAll();
+                    WHERE c.esCorrelativaDe = $idMateria";
+           // echo $sql; die();        
+            $sta = $mdb->prepare($sql);
+            $sta->execute();
+            $resultado = $sta->fetchAll();
             
-                return $resultado;
-            } catch (PDOException $e) {
-                echo "ERROR en getCorrelatividades(".$sql.")";
-            }
+            return $resultado;
+        } catch (PDOException $e) {
+            echo "ERROR en getCorrelatividades(".$sql.")";
         }
+    }
 
-        function getPrograma($idMateria)
-        {
-            try {
-                $mdb =  DataBase::getDb();
-                $sql = "SELECT programa FROM plan WHERE idMateria = $idMateria";
-                $sta = $mdb->prepare($sql);
-                $sta->execute();
-                $resultado = $sta->fetchAll();
+    static function getPrograma($idMateria)
+    {
+        try {
+            $mdb =  DataBase::getDb();
+            $sql = "SELECT programa FROM plan WHERE idMateria = $idMateria";
+            $sta = $mdb->prepare($sql);
+            $sta->execute();
+            $resultado = $sta->fetchAll();
             
-                return $resultado;
-            } catch (PDOException $e) {
-                echo "ERROR en getAll(".$sql.")";
-            }
+            return $resultado;
+        } catch (PDOException $e) {
+            echo "ERROR en getAll(".$sql.")";
         }
+    }
     
-        function getProgramaResumido($idMateria)
-        {
-            try {
-                $mdb =  DataBase::getDb();
-                $sql = "SELECT c.nombre,m.asignatura,p.anio,p.Regimen,c.plan,p.horasAnuales  FROM materia m
+    static function getProgramaResumido($idMateria)
+    {
+        try {
+            $mdb =  DataBase::getDb();
+            
+            $sql = "SELECT c.nombre,m.asignatura,p.anio,p.Regimen,c.plan,p.horasAnuales  FROM materia m
                     INNER JOIN plan p ON m.idMateria = p.idMateria
                     INNER JOIN carrera c ON c.idCarrera = p.idCarrera
                     WHERE m.idMateria = $idMateria";
-                $sta = $mdb->prepare($sql);
-                $sta->execute();
-                $resultado = $sta->fetchAll();
+            $sta = $mdb->prepare($sql);
+            $sta->execute();
+            $resultado = $sta->fetchAll();
             
-                return $resultado;
-            } catch (PDOException $e) {
-                echo "ERROR en getAll(".$sql.")";
-            }
+            return $resultado;
+        } catch (PDOException $e) {
+            echo "ERROR en getAll(".$sql.")";
+        }
+    }
+
+    static function getEquipo($idMateria)
+    {
+        try {
+            $mdb =  DataBase::getDb();
+            
+            $sql = "SELECT d.idDocente, d.nombre,d.apellido,c.descripcion 
+                    FROM equipo e 
+                    INNER JOIN materia m ON e.idMateria = m.idMateria 
+                    INNER JOIN Docente d ON e.idDocente = d.idDocente 
+                    INNER JOIN categoria c ON d.categoria = c.idCategoria 
+                    WHERE m.idMateria = $idMateria";
+
+            $sta = $mdb->prepare($sql);
+            $sta->execute();
+            $resultado = $sta->fetchAll();
+            
+            return $resultado;
+        } catch (PDOException $e) {
+            echo "ERROR en getAll(".$sql.")";
         }
 
-        function getEquipo()
-        {
-            $array = Docente::getEquipo($this->getIdMateria());
-            return $array;
-        }
+        /*
+        $array = Docente::getEquipo($this->getIdMateria());
+        return $array;*/
     }
 }

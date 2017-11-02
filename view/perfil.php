@@ -1,7 +1,7 @@
 <main>
 	<div class="container row">
 		<div class="col-sm-4"></div>
-		<div class="jumbotron col-sm-6 align-center">
+		<div class="jumbotron col-sm-7 align-center sombreado">
 			<p><b><h2><?php echo $docente[0]['nombre']." ".$docente[0]['apellido'];?></h2></b></p>
 			<div class="row">
 				<div class="col-sm-12">
