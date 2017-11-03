@@ -90,21 +90,84 @@
                     <tr>
                         <th><h3>Correlatividades</h3></th>
                     </tr>
+                </table>
+                
+                <table class="table table-striped sombreado">
+                
+                    <tr>
+                        <td>
+                            <div class="alert alert-info col-md-3" role="alert">
+                                <h6><ins><strong>Regularizada para Cursar</strong></ins></h6>
+                            </div>
+                        </td>
+                    </tr>    
+                    
+                    <?php
+                        for ($i=0; $i<count($regulCursar); $i++) {
+                            echo "<tr>
+                                    <td>
+                                        
+                                        <a class=\"list-group-item list-group-item-action\"
+                                        href=\"index.php?c=materia&a=materia&cod=".$regulCursar[$i]["idMateria"]."\">";
+                                        echo strtoupper(utf8_encode($regulCursar[$i]["codigo"]))." - ".
+                                        utf8_encode ($regulCursar[$i]["correlativa"]);
+                                        "</a>
+                                    </td>"; 
+                            echo "</tr>";
+                        }
+                    ?>
+
+                    </ul>
+                </table>
+                    
+                <table class="table table-striped sombreado">
+                    <tr>
+                        <td>
+                            <div class="alert alert-info col-md-3" role="alert">
+                                <h6><ins><strong>Aprobada para Cursar</strong></strong></h6>
+                            </div>
+                        </td>
+                    </tr>
 
                     <?php
-                        for ($i=0; $i<count($correlativas); $i++) {
+                        for ($i=0; $i<count($aprobadaCursar); $i++) {
                             echo "<tr>
-                                    <td>";
-                                        echo strtoupper(utf8_encode($correlativas[$i]["correlativa"])).
-                                    "</td>";
-                            
-                            echo    "<td>".
-                                        utf8_encode ($correlativas[$i]["descripcion"]);
-                            echo "
-                                    </td>
-                                 </tr>";
+                                    <td>
+                                    
+                                    <a class=\"list-group-item list-group-item-action\"
+                                    href=\"index.php?c=materia&a=materia&cod=".$aprobadaCursar[$i]["idMateria"]."\">";
+                                        echo strtoupper(utf8_encode($aprobadaCursar[$i]["codigo"]))." - ".
+                                        utf8_encode ($aprobadaCursar[$i]["correlativa"]);
+                                    "</a>
+                                    
+                                    </td>"; 
+                            echo "</tr>";
                         }
-                    ?>   
+                    ?> 
+                </table>
+
+                <table class="table table-striped sombreado">
+                    <tr>
+                        <td>
+                            <div class="alert alert-info col-md-3" role="alert">
+                                <h6><ins><strong>Aprobada para Rendir</strong></ins></h6>
+                            </div>        
+                        </td>
+                    </tr>
+
+                    <?php
+                        for ($i=0; $i<count($aprobadaRendir); $i++) {
+                            echo "<tr>
+                                    <td>
+                                    <a class=\"list-group-item list-group-item-action\"
+                                    href=\"index.php?c=materia&a=materia&cod=".$aprobadaRendir[$i]["idMateria"]."\">";
+                                        echo strtoupper(utf8_encode($aprobadaRendir[$i]["codigo"]))." - ".
+                                        utf8_encode ($aprobadaRendir[$i]["correlativa"]);
+                                    "</a>
+                                    </td>"; 
+                            echo "</tr>";
+                        }
+                    ?> 
                 </table>
 
             </div>

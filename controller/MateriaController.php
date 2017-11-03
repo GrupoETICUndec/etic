@@ -9,7 +9,10 @@ class MateriaController
         $m = new Materia($_GET['cod']);
         $datos = $m->getProgramaResumido($_GET['cod']);
         $equipo = $m->getEquipo($_GET['cod']);
-        $correlativas = $m->getCorrelatividades($_GET['cod']);
+        
+        $regulCursar = $m->getCorrelatividades($_GET['cod'], 1);
+        $aprobadaCursar = $m->getCorrelatividades($_GET['cod'], 2);
+        $aprobadaRendir = $m->getCorrelatividades($_GET['cod'], 3);
         $programa = $m->getPrograma($_GET['cod']);
     
 

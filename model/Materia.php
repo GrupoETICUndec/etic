@@ -63,17 +63,17 @@ class Materia
     }
 
 
-    function getCorrelatividades($idMateria)
+    function getCorrelatividades($idMateria, $tipo)
     {
         try {
             $mdb =  DataBase::getDb();
-            $sql = "SELECT p.codigo,m.asignatura AS correlativa, tc.descripcion
+            $sql = "SELECT p.codigo,m.asignatura AS correlativa, tc.descripcion, p.idMateria
                     FROM correlatividad c
                     INNER JOIN plan p ON c.idPlan = p.idPlan
                     INNER JOIN  materia m ON p.idMateria = m.idMateria
                     INNER JOIN tipoCorrelatividad tc ON c.tipoCorrelatividad = tc.idCorrelatividad
-                    WHERE c.esCorrelativaDe = $idMateria";
-           // echo $sql; die();        
+                    WHERE c.esCorrelativaDe = $idMateria AND c.tipoCorrelatividad = $tipo";
+                   
             $sta = $mdb->prepare($sql);
             $sta->execute();
             $resultado = $sta->fetchAll();
