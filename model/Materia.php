@@ -123,7 +123,7 @@ class Materia
         try {
             $mdb =  DataBase::getDb();
             
-            $sql = "SELECT d.idDocente, d.nombre,d.apellido,c.descripcion 
+            $sql = "SELECT d.idDocente, d.nombre,d.apellido,c.descripcion, d.email 
                     FROM equipo e 
                     INNER JOIN materia m ON e.idMateria = m.idMateria 
                     INNER JOIN Docente d ON e.idDocente = d.idDocente 

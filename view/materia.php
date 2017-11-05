@@ -73,7 +73,11 @@
                                     <a href=\"index.php?c=docente&a=perfil&idd=".$equipo[$i]['idDocente']."\">";
                                         echo utf8_encode (strtoupper($equipo[$i]["apellido"].", ".$equipo[$i]["nombre"]));
                             echo " - ".utf8_encode ($equipo[$i]["descripcion"])."
-                                    </a></td>
+                                    </a>
+                                    </td>
+                                    <td>
+                                        ".$equipo[$i]["email"]."
+                                    </td>
                                 </tr>";
                         }
                     ?>   
