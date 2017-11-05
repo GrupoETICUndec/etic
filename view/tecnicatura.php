@@ -26,41 +26,32 @@
 
 
             <!--Panel 2-->
-            <div class="tab-pane fade" id="panel2" role="tabpanel">
-                <br>
-                <p><strong>Primer Año</strong></p>
-                <p>Matemática l</p>
-                <p>Matemática Discreta</p>
-                <p>Estructura de Datos y Algoritmos l</p>
-                <p>Taller de Computación</p>
-                <p>Sistemas l</p>
-                <p>Inglés Técnico</p>
-                <p>Matemática ll</p>
-                <p>Estructura de Datos y Algoritmos ll</p>
-                <p>Arquitectura de Computadores</p>
-                <p>Lenguaje de Programación l</p>
-                <p>Taller de Programación l</p>
-                <p>Diseño Gráfico</p>
-                <p><strong>Segundo Año</strong></p>
-                <p>Sistemas Operativos</p>
-                <p>Bases de Datos l</p>
-                <p>Introducción al Diseño de Aplicaciones Web</p>
-                <p>Lenguajes de Programación ll</p>
-                <p>Taller de Programación ll</p>
-                <p>Sistemas ll</p>
-                <p>Bases de Datos ll</p>
-                <p>Probabilidad y Estadística</p>
-                <p>Diseño de Aplicaciones Web l</p>
-                <p>Taller de Programación lll</p>
-                <p>Tecnologías de Comunicaciones</p>
-                <p>Seguridad en Aplicaciones Web</p>
-                <p><strong>Tercer Año</strong></p>
-                <p>Diseño de Aplicaciones Web ll</p>
-                <p>Taller de Programación lV</p>
-                <p>Legislación y Ética Profesional</p>
-                <p>Redes de Datos</p>
-                <p>Taller de Diseño de Aplicaciones Web</p>
-                <p>Trabajo Final</p>
+            <div class="tab-pane fade" id="panel2" role="tabpanel" ng-app="universidadApp" ng-controller="progTudawCtrl">
+                <div class="row">    
+                    <input type="text" ng-model="busqueda" class="form-control" placeholder="Buscar...">
+                </div>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Asignatura</th>
+                        <th>Año</th>
+                        <th>Regimen</th>
+                        <th>Hs Cuat 1</th>
+                        <th>Hs Cuat 2</th>
+                        <th>Hs Anuales</th>
+                    </tr>
+                    
+                    <tr ng-repeat="mat in materias | filter:busqueda ">
+                        <td >{{mat.codigo}}</td>
+                        <td><a href="index.php?c=materia&a=materia&cod={{mat.idPlan}}">{{mat.asignatura}}</a></td>
+                        <td>{{mat.anio}}</td>
+                        <td>{{mat.regimen}}</td>
+                        <td>{{mat.horasPrimerCuatrimestre}}</td>
+                        <td>{{mat.horasSegundoCuatrimestre}}</td>
+                        <td>{{mat.horasAnuales}}</td>
+                    </tr>
+                </table>
             </div>
             <!--/.Panel 2-->
 

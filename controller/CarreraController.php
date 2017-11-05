@@ -42,4 +42,46 @@ class CarreraController{
         }
         echo json_encode($json_array);
     }
+
+    public function jsonLic()
+    {
+        $array = Carrera::getPlan(2);
+        
+        for ($i=0; $i<count($array); $i++) 
+        {
+            $json_array[] = array(
+                                "idPlan"    => $array[$i]["idPlan"],
+                                "codigo"    => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["codigo"]),
+                                "asignatura"  => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["asignatura"]),
+                                "anio"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["anio"]),
+                                "regimen"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["regimen"]),
+                                "horasPrimerCuatrimestre"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["horasPrimerCuatrimestre"]),
+                                "horasSegundoCuatrimestre"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["horasSegundoCuatrimestre"]),
+                                "horasAnuales"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["horasAnuales"]),
+                                "idMateria"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["idMateria"])
+                            );
+        }
+        echo json_encode($json_array);
+    }
+
+    public function jsonTudaw()
+    {
+        $array = Carrera::getPlan(3);
+        
+        for ($i=0; $i<count($array); $i++) 
+        {
+            $json_array[] = array(
+                                "idPlan"    => $array[$i]["idPlan"],
+                                "codigo"    => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["codigo"]),
+                                "asignatura"  => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["asignatura"]),
+                                "anio"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["anio"]),
+                                "regimen"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["regimen"]),
+                                "horasPrimerCuatrimestre"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["horasPrimerCuatrimestre"]),
+                                "horasSegundoCuatrimestre"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["horasSegundoCuatrimestre"]),
+                                "horasAnuales"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["horasAnuales"]),
+                                "idMateria"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["idMateria"])
+                            );
+        }
+        echo json_encode($json_array);
+    }
 }

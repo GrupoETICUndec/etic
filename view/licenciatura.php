@@ -20,63 +20,42 @@
             <!--Panel 1-->
             <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
                 <br>
-                <p class="lead">La carrera de <strong>Licenciatura en Sistemas</strong> tiene como fin formar profesionales con un perfil que responda a las exigencias del mercado y de las empresas, que, continuamente, actualizan sus recursos tecnológicos y procesos de administración y gestión informática. Por tal motivo el plan fue diseñado para brindar una sólida formación básica en áreas específicas como gestión e ingeniería de software, programación, diseño y análisis de sistemas, redes y asignaturas que permiten la adquisición de una formación continuamente actualizada que facilita la inserción laboral en forma inmediata. La preparación integral recibida en materias técnicas y humanísticas lo habilita para responder a las demandas de una sociedad que exige de un profesional con un marcado compromiso con la preservación del medio ambiente, el mejoramiento de la calidad de vida en general y una gran responsabilidad social en el quehacer profesional.</p>
+                <p class="lead">
+                    La carrera de <strong>Licenciatura en Sistemas</strong> tiene como fin formar profesionales con un perfil que responda a las exigencias del mercado y de las empresas, que, continuamente, actualizan sus recursos tecnológicos y procesos de administración y gestión informática. Por tal motivo el plan fue diseñado para brindar una sólida formación básica en áreas específicas como gestión e ingeniería de software, programación, diseño y análisis de sistemas, redes y asignaturas que permiten la adquisición de una formación continuamente actualizada que facilita la inserción laboral en forma inmediata. La preparación integral recibida en materias técnicas y humanísticas lo habilita para responder a las demandas de una sociedad que exige de un profesional con un marcado compromiso con la preservación del medio ambiente, el mejoramiento de la calidad de vida en general y una gran responsabilidad social en el quehacer profesional.
+                </p>
             </div>
             <!--/.Panel 1-->
 
 
             <!--Panel 2-->
-            <div class="tab-pane fade" id="panel2" role="tabpanel">
-                <br>
-                <p><strong>Primer Año</strong></p>
-                <p>Análisis Matemático l</p>
-                <p>Algoritmos y Estructura de Datos</p>
-                <p>Algebra y Geometría Analítica</p>
-                <p>Matemática Discreta</p>
-                <p>Administración y Organización de Empresas</p>
-                <p>Electrónica Digital</p>
-                <p>Algebra Lineal</p>
-                <p><strong>Segundo Año</strong></p>
-                <p>Análisis Matemático ll</p>
-                <p>Programación l</p>
-                <p>Sistemas l</p>
-                <p>Arquitectura de Computadoras l</p>
-                <p>Sistemas Operativos l</p>
-                <p>Probabilidad y Estadística</p>
-                <p>Sistemas Operativos ll</p>
-                <p>Arquitectura de Computadoras ll</p>
-                <p><strong>Tercer Año</strong></p>
-                <p>Tecnologías de las Comunicaciones</p>
-                <p>Programación ll</p>
-                <p>Bases de Datos l</p>
-                <p>Sistemas ll</p>
-                <p>Seminario l</p>
-                <p>Ética Profesional</p>
-                <p>Cálculo Numérico y Avanzado</p>
-                <p>Economía</p>
-                <p><strong>Cuarto Año</strong></p>
-                <p>Bases de Datos ll</p>
-                <p>Programación lll</p>
-                <p>Teoría de la Computación</p>
-                <p>Redes de Datos l</p>
-                <p>Contabilidad y Costos</p>
-                <p>Investigación Operativa</p>
-                <p>Formulación y Evaluación de Proyectos</p>
-                <p>Modelos y Simulación</p>
-                <p>Planeamiento y Control de Gestión</p>
-                <p>Seminario ll</p>
-                <p>Paradigmas de Programación</p>
-                <p><strong>Quinto Año</strong></p>
-                <p>Trabajo Final</p>
-                <p>Legislación</p>
-                <p>Inteligencia Artificial</p>
-                <p>Administración de Proyectos Informáticos</p>
-                <p>Ingeniería de Software</p>
-                <p>Seminario lll</p>
-                <p>Auditoria de Sistemas</p>
-                <p>Gestión de Calidad</p>
-                <p>Pericias Informáticas y de Comunicaciones</p>
-                <p>Herramientas de Ingeniería de Software</p>
+            <div class="tab-pane fade" id="panel2" role="tabpanel" ng-app="universidadApp" ng-controller="progLicCtrl">
+                
+                <div class="row">    
+                    <input type="text" ng-model="busqueda" class="form-control" placeholder="Buscar...">
+                </div>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Asignatura</th>
+                        <th>Año</th>
+                        <th>Regimen</th>
+                        <th>Hs Cuat 1</th>
+                        <th>Hs Cuat 2</th>
+                        <th>Hs Anuales</th>
+                    </tr>
+                    
+                    <tr ng-repeat="mat in materias | filter:busqueda ">
+                        <td >{{mat.codigo}}</td>
+                        <td><a href="index.php?c=materia&a=materia&cod={{mat.idPlan}}">{{mat.asignatura}}</a></td>
+                        <td>{{mat.anio}}</td>
+                        <td>{{mat.regimen}}</td>
+                        <td>{{mat.horasPrimerCuatrimestre}}</td>
+                        <td>{{mat.horasSegundoCuatrimestre}}</td>
+                        <td>{{mat.horasAnuales}}</td>
+                    </tr>
+                </table>
+                
             </div>
             <!--/.Panel 2-->
 

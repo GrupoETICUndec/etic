@@ -35,6 +35,38 @@
   ]);
 
   app.controller
+  ('progLicCtrl', 
+    ['$scope','$http',
+      function ($scope, $http) 
+      {
+          $scope.materias = {};
+          
+          
+            $http.get('index.php?c=carrera&a=jsonLic').success
+            (function(data) 
+            {
+              $scope.materias=data;
+            })
+      }
+  ]);
+
+  app.controller
+  ('progTudawCtrl', 
+    ['$scope','$http',
+      function ($scope, $http) 
+      {
+          $scope.materias = {};
+          
+          
+            $http.get('index.php?c=carrera&a=jsonTudaw').success
+            (function(data) 
+            {
+              $scope.materias=data;
+            })
+      }
+  ]);
+
+  app.controller
   ('matCtrl', 
     ['$scope','$http',
       function ($scope, $http) 
