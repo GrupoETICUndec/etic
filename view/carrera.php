@@ -43,7 +43,7 @@
                     
                     <tr ng-repeat="mat in materias | filter:busqueda ">
                         <td >{{mat.codigo}}</td>
-                        <td><a href="index.php?c=materia&a=materia&cod={{mat.idPlan}}">{{mat.asignatura}}</a></td>
+                        <td><a href="index.php?c=materia&a=materia&cod={{mat.idMateria}}">{{mat.asignatura}}</a></td>
                         <td>{{mat.anio}}</td>
                         <td>{{mat.regimen}}</td>
                         <td>{{mat.horasPrimerCuatrimestre}}</td>
