@@ -4,23 +4,26 @@ require_once 'model/Carrera.php';
 
 class CarreraController{
 
-    public function ingenieria(){
+    public function show(){
+        $carrera = Carrera::getOCarrera($_REQUEST['id']);
+        $descripcion = $carrera->getDescripcion();
+        $perfil =  $carrera->getPerfil();
+        switch ($carrera->getIdCarrera()){
+            case 1: // ingeniería
+            $ngController="progIngCtrl";
+            break;
+            case 2: // licenciatura
+            $ngController="progLicCtrl";
+            break;
+            case 3: // tecnicatura
+            default:
+            $ngController="progTudawCtrl";
+            break;
+        }
         require_once 'view/header.php';
-        require_once 'view/ingenieria.php';
+        require_once 'view/carrera.php';
         require_once 'view/footer.php';
     }
-
-    public function licenciatura(){
-        require_once 'view/header.php';
-        require_once 'view/licenciatura.php';
-        require_once 'view/footer.php';
-    }
-    
-    public function tecnicatura(){
-        require_once 'view/header.php';
-        require_once 'view/tecnicatura.php';
-        require_once 'view/footer.php';
-    } 
 
     public function jsonIng()
     {
