@@ -8,25 +8,30 @@
                 <input type="text" ng-model="busqueda" class="form-control" placeholder="Buscar...">
             </div>
 
-            <table class="table table-striped">
-                <tr>
-                    <th>
-                        <a ng-click="columna='nombre'; reverse = !reverse">Nombre</a>
-                    </th>
-                    <th>
-                        <a ng-click="columna='apellido'; reverse = !reverse">Apellido</a>
-                    </th>
-                    <th>
-                        <a ng-click="columna='mail'; reverse = !reverse">Mail</a>
-                    </th>
-                </tr>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <a ng-click="columna='nombre'; reverse = !reverse">Nombre</a>
+                        </th>
+                        <th>
+                            <a ng-click="columna='apellido'; reverse = !reverse">Apellido</a>
+                        </th>
+                        <th>
+                            <a ng-click="columna='mail'; reverse = !reverse">Mail</a>
+                        </th>
+                    </tr>
+                </thead>
 
-
-                <tr dir-paginate="profe in profesores | filter:busqueda | orderBy:columna:reverse | itemsPerPage:15">
-                    <td><a href="index.php?c=docente&a=perfil&idd={{profe.idDocente}}">{{profe.nombre}}</a></td>
-                    <td>{{profe.apellido}}</td>
-                    <td>{{profe.email}}</td>
-                </tr>
+                <tbody>
+                    <tr dir-paginate="profe in profesores | filter:busqueda | orderBy:columna:reverse | itemsPerPage:15">
+                        <td><a ng-href="index.php?c=docente&a=perfil&idd={{profe.idDocente}}"><img src="view/images/lupa.jpg" style="width:20px; height:20px;"></a></td>
+                        <td><a ng-href="index.php?c=docente&a=perfil&idd={{profe.idDocente}}">{{profe.nombre}}</a></td>
+                        <td><a ng-href="index.php?c=docente&a=perfil&idd={{profe.idDocente}}">{{profe.apellido}}</a></td>
+                        <td><a href="index.php?c=docente&a=perfil&idd={{profe.idDocente}}">{{profe.email}}</a></td>
+                    </tr>
+                </tbody>
             </table>
     
             <div>

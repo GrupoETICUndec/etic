@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="view/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS -->
-    <link href="view/css/bootstrap.min.css" rel="stylesheet">
+    <link href="view/css/bootstrap.css" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
     <link href="view/css/mdb.min.css" rel="stylesheet">

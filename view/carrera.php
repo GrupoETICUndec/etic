@@ -30,8 +30,10 @@
                     <input type="text" ng-model="busqueda" class="form-control" placeholder="Buscar...">
                 </div>
 
-                <table class="table table-striped">
+                <table class="table table-hover">
+                    <thead>
                     <tr>
+                        <th></th>
                         <th>Codigo</th>
                         <th>Asignatura</th>
                         <th>Año</th>
@@ -40,8 +42,12 @@
                         <th>Hs Cuat 2</th>
                         <th>Hs Anuales</th>
                     </tr>
-                    
+                    </thead>
+
+
+                    <tbody>
                     <tr ng-repeat="mat in materias | filter:busqueda ">
+                        <td ><a ng-href=""><img src="view/images/lupa.jpg" style="width:20px; height:20px;"></a></td>
                         <td >{{mat.codigo}}</td>
                         <td><a href="index.php?c=materia&a=materia&cod={{mat.idMateria}}">{{mat.asignatura}}</a></td>
                         <td>{{mat.anio}}</td>
@@ -50,6 +56,7 @@
                         <td>{{mat.horasSegundoCuatrimestre}}</td>
                         <td>{{mat.horasAnuales}}</td>
                     </tr>
+                    </tbody>
                 </table>
                 
             </div>

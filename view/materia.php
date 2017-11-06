@@ -61,11 +61,13 @@
 
                 <div class="container tab-content card" >
 
-                <table class="table table-striped sombreado">
+                <table class="table table-hover sombreado">
+                    <thead>
                     <tr>
                         <th><h3>Equipo</h3></th>
                     </tr>
-
+                    
+                    <tbody>
                     <?php
                         for ($i=0; $i<count($equipo); $i++) {
                             echo "<tr>
@@ -80,9 +82,10 @@
                                     </td>
                                 </tr>";
                         }
-                    ?>   
+                    ?>
+                    </tbody>   
                 </table>
-
+                    
             </div>
 
 
