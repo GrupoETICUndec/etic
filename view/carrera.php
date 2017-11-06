@@ -2,6 +2,8 @@
 
         <!--Main layout-->
 
+        <h1 style="text-align: center; "> <?= $carrera->getpPlan() . " - " . $carrera->getName() ?></h1>
+
         <!-- Nav tabs -->
         <ul class="nav nav-tabs nav-justified">
             <li class="nav-item">
@@ -19,7 +21,7 @@
         <div class="container tab-content card">
             <!--Panel 1-->
             <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-	    <?= $descripcion ?>
+	    <?= $carrera->getDescripcion() ?>
             </div>
             <!--/.Panel 1-->
 
@@ -65,7 +67,7 @@
             
             <!--Panel 3-->
             <div class="tab-pane fade" id="panel3" role="tabpanel">
-		<?= $perfil; ?>
+		<?= $carrera->getPerfil() ?>
             </div>
             <!--/.Panel 3-->
         </div>
