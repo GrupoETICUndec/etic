@@ -10,10 +10,10 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<p><b>Email:</b> <h5><?php echo $docente[0]['email']; ?></h5></p>
+					<p><b>Email 1:</b> <h5><?php echo $docente[0]['email']; ?></h5></p>
 				</div>
 				<div class="col-sm-6">
-					<p><b>Tel:</b> <h5><?php echo $docente[0]['telefono'];?></h5></p>
+					<p><b>Email 2:</b> <h5><?php echo $docente[0]['telefono'];?></h5></p>
 				</div>
 			</div>
 			<div class="row">
