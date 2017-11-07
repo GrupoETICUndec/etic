@@ -28,7 +28,8 @@
 
             <!--Panel 2-->
             <div class="tab-pane fade" id="panel2" role="tabpanel" ng-app="universidadApp" ng-controller="<?= $ngController ?>">    
-                <div class="row">    
+                <div class="row">
+                    <h2 style="text-align: center; "><a href="<?= $carrera->getPlanPdf() ?>" target="blank">Descargar plan</a></h2>
                     <input type="text" ng-model="busqueda" class="form-control" placeholder="Buscar...">
                 </div>
 

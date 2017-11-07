@@ -6,13 +6,15 @@ class Carrera{
     private $name;
     private $descripcion;
     private $perfil;
+    private $planPdf;
     
-    function __construct($idCarrera, $plan, $name, $descripcion, $perfil){
+    function __construct($idCarrera, $plan, $name, $descripcion, $perfil, $pdf){
         $this->setIdCarrera($idCarrera);
         $this->setPlan($plan);
         $this->setName($name);
         $this->setDescripcion($descripcion);
         $this->setPerfil($perfil);
+        $this->setPlanPdf($pdf);
     }
 
 
@@ -31,6 +33,9 @@ class Carrera{
     function getPerfil()     { return $this->perfil; }
     function setPerfil($val) { $this->perfil = $val; }
 
+    function getPlanPdf()     { return $this->planPdf; }
+    function setPlanPdf($val) { $this->planPdf = $val; }
+
     static function getCarrera($idCarrera){
         try{
             $mdb =  DataBase::getDb();
@@ -48,7 +53,7 @@ class Carrera{
 
     static function getOCarrera($id){
         $car = Carrera::getCarrera($id);
-        return new Carrera($car[0]['idCarrera'], $car[0]['plan'], $car[0]['nombre'], $car[0]['presentacion'], $car[0]['perfil']);
+        return new Carrera($car[0]['idCarrera'], $car[0]['plan'], $car[0]['nombre'], $car[0]['presentacion'], $car[0]['perfil'], $car[0]['planPdf']);
     }
 
     static function getPlan($idCarrera){

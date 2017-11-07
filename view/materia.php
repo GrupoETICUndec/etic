@@ -17,7 +17,7 @@
             <!--Panel 1-->
                 
                 <table class="table table-striped sombreado">
-                    <tr><h3><?php echo utf8_encode ($datos[0]["asignatura"]); ?></h3></tr>
+                    <tr><h3><?= $datos[0]["asignatura"]; ?></h3></tr>
                     <tr>
                         <th><a >Carrera</a></th>
                         <th><a >Programa</a></th>
@@ -29,26 +29,16 @@
 
                     <?php
                         for ($i=0; $i<count($datos); $i++) {
-                            echo "<tr>";
-                                echo "<td>";
-                                    echo utf8_encode ($datos[$i]["nombre"]);      
-                                echo "</td>";
-                                echo "<td> <b><a href=\"";
-                                    echo utf8_encode ($programa[$i]['programa']);      
-                                echo "\">Ver Programa</a><b></td>";
-                                echo "<td>";
-                                    echo utf8_encode ($datos[$i]["anio"]);      
-                                echo "</td>";
-                                echo "<td>";
-                                    echo utf8_encode ($datos[$i]["Regimen"]);      
-                                echo "</td>";
-                                echo "<td>";
-                                    echo utf8_encode ($datos[$i]["plan"]);      
-                                echo "</td>";
-                                echo "<td>";
-                                    echo utf8_encode ($datos[$i]["horasAnuales"]);      
-                                echo "</td>";
-                            echo "</tr>";
+                    ?>
+                            <tr>
+                                <td><?= $datos[$i]["nombre"]; ?></td>
+                                <td><b><?php if (empty($programa[$i]['programa'])){ echo "- - -"; } else { ?><a href="<?= $programa[$i]['programa']; ?>" target="blank">Ver Programa</a><?php } ?><b></td>
+                                <td><?= $datos[$i]["anio"]; ?></td>
+                                <td><?= $datos[$i]["Regimen"];?></td>
+                                <td><?= $datos[$i]["plan"]; ?></td>
+                                <td><?= $datos[$i]["horasAnuales"]; ?></td>
+                            </tr>
+                    <?php
                         }
                     ?> 
 
@@ -73,8 +63,8 @@
                             echo "<tr>
                                     <td> 
                                     <a href=\"index.php?c=docente&a=perfil&idd=".$equipo[$i]['idDocente']."\">";
-                                        echo utf8_encode (strtoupper($equipo[$i]["apellido"].", ".$equipo[$i]["nombre"]));
-                            echo " - ".utf8_encode ($equipo[$i]["descripcion"])."
+                                        echo strtoupper($equipo[$i]["apellido"].", ".$equipo[$i]["nombre"]);
+                            echo " - ". $equipo[$i]["descripcion"]."
                                     </a>
                                     </td>
                                     <td>
@@ -127,8 +117,8 @@
                                         <td>
                                             <a class=\"list-group-item list-group-item-action\"
                                             href=\"index.php?c=materia&a=materia&cod=".$regulCursar[$i]["idMateria"]."\">";
-                                            echo strtoupper(utf8_encode($regulCursar[$i]["codigo"]))." - ".
-                                            utf8_encode ($regulCursar[$i]["correlativa"]);
+                                            echo strtoupper($regulCursar[$i]["codigo"])." - ".
+                                            $regulCursar[$i]["correlativa"];
                                             "</a>
                                         </td>"; 
                                 echo "</tr>";
@@ -168,8 +158,8 @@
                                         
                                         <a class=\"list-group-item list-group-item-action\"
                                         href=\"index.php?c=materia&a=materia&cod=".$aprobadaCursar[$i]["idMateria"]."\">";
-                                            echo strtoupper(utf8_encode($aprobadaCursar[$i]["codigo"]))." - ".
-                                            utf8_encode ($aprobadaCursar[$i]["correlativa"]);
+                                            echo strtoupper($aprobadaCursar[$i]["codigo"])." - ".
+                                            $aprobadaCursar[$i]["correlativa"];
                                         "</a>
                                         
                                         </td>"; 
@@ -208,8 +198,8 @@
                                         <td>
                                         <a class=\"list-group-item list-group-item-action\"
                                         href=\"index.php?c=materia&a=materia&cod=".$aprobadaRendir[$i]["idMateria"]."\">";
-                                            echo strtoupper(utf8_encode($aprobadaRendir[$i]["codigo"]))." - ".
-                                            utf8_encode ($aprobadaRendir[$i]["correlativa"]);
+                                            echo strtoupper($aprobadaRendir[$i]["codigo"])." - ".
+                                            $aprobadaRendir[$i]["correlativa"];
                                         "</a>
                                         </td>"; 
                                 echo "</tr>";

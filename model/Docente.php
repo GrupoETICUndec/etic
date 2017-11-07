@@ -1,70 +1,50 @@
-<?php require_once 'config/DataBase.php';
+<?php 
+require_once 'config/DataBase.php';
+require_once 'model/Categoria.php';
 
 class Docente{
     private $idDocente;
     private $nombre;
     private $apellido;
+    private $categoria;
     private $telefono;
     private $email;
     private $descripcion;
     
-    function __construct($idDocente, $nombre, $apellido, $telefono, $email, $descripcion){
+    function __construct($idDocente, $nombre, $apellido, $categoria, $telefono, $email, $descripcion){
         $this->setIdDocente($idDocente);
         $this->setNombre($nombre);
         $this->setApellido($apellido);
+        $this->setCategoria($categoria);
         $this->setTelefono($telefono);
+        $this->setEmail($email);
         $this->setDescripcion($descripcion);
 
     }
 
+    function getIdDocente() { return $this->idDocente; }
+    function setIdDocente($idDocente) { $this->idDocente = $idDocente; }
 
-    function getIdDocente() {
-        return $this->idDocente;
-    }
+    function getNombre() { return $this->nombre; }
+    function setNombre($value) { $this->nombre = $value; }
 
-    function getNombre() {
-        return $this->nombre;
-    }
+    function getApellido() { return $this->apellido; }
+    function setApellido($apellido) { $this->apellido = $apellido; }
 
-    function getApellido() {
-        return $this->apellido;
-    }
 
-    function getTelefono() {
-        return $this->telefono;
-    }
+    function getCategoria() { return $this->categoria; }
+    function setCategoria($value) { $this->categoria = $value; }
+    function getOCategoria() { return Categoria::getCategoria($this->categoria); }
 
-    function getEmail() {
-        return $this->email;
-    }
+    function getTelefono() { return ($this->telefono == null )? "Informacion no disponible" : $this->telefono; }
+    function setTelefono($telefono) { $this->telefono = $telefono; }
 
-    function getCv() {
-        return $this->cv;
-    }
+    function getEmail() { return ($this->email == null )? "Informacion no disponible" : $this->email; }
+    function setEmail($email) { $this->email = $email; }
 
-    function setIdDocente($idDocente) {
-        $this->idDocente = $idDocente;
-    }
+    function getDescripcion() { return $this->descripcion; }
+    function setDescripcion($descripcion) { $this->descripcion = $descripcion; }
 
-    function setName($nombre) {
-        $this->nombre = $nombre;
-    }
-
-    function setLastName($apellido) {
-        $this->apellido = $apellido;
-    }
-
-    function setTelefono($telefono) {
-        $this->telefono = $telefono;
-    }
-
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-    function setDescripcion($descripcion) {
-        $this->descripcion = $descripcion;
-    }
 
     static function getDocente($idDocente){
         try{
@@ -72,10 +52,17 @@ class Docente{
             $sql = "SELECT * FROM Docente WHERE idDocente = $idDocente LIMIT 1";
             $sta = $mdb->prepare($sql);
             $sta->execute();
-            $resultado = $sta->fetchAll();
+            $r = $sta->fetchAll();
             
-            return $resultado;
+            $ob = new Docente($r[0]['idDocente'], 
+                              $r[0]['nombre'], 
+                              $r[0]['apellido'], 
+                              $r[0]['categoria'], 
+                              $r[0]['telefono'], 
+                              $r[0]['email'], 
+                              $r[0]['descripcion']  );
             
+            return $ob;
         }catch(PDOException $e){
             echo "ERROR en getDocente(".$sql.")";
         }
@@ -132,7 +119,6 @@ class Docente{
             echo "ERROR en getDocente(".$sql.")";
         }
     }
-
 
 }
 ?>

@@ -10,13 +10,8 @@ class DocenteController{
     }
 
     public function perfil(){
-        $docente = Docente::getPerfil($_GET['idd']);
-        if($docente[0]["telefono"] == null){
-            $docente[0]["telefono"] = "Informacion no disponible";
-        }
-        if($docente[0]["descripcion"] == null){
-            $docente[0]["descripcion"] = "Informacion no disponible";
-        }
+        $docente = Docente::getDocente($_GET['idd']);
+
         require_once 'view/header.php';
         require_once 'view/perfil.php';
         require_once 'view/footer.php';
@@ -28,10 +23,10 @@ class DocenteController{
 
         for ($i=0; $i<count($array); $i++) {
             $json_array[] = array(
-                                "idDocente" => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["idDocente"]),
-                                "nombre"    => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["nombre"]),
-                                "apellido"  => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["apellido"]),
-                                "email"     => iconv('ISO-8859-1', 'UTF-8//IGNORE', $array[$i]["email"]));
+                                "idDocente" => $array[$i]["idDocente"],
+                                "nombre"    => $array[$i]["nombre"],
+                                "apellido"  => $array[$i]["apellido"],
+                                "email"     => $array[$i]["email"]);
         }
         echo json_encode($json_array);
     }
