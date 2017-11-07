@@ -127,7 +127,7 @@ class Materia
                     FROM equipo e 
                     INNER JOIN materia m ON e.idMateria = m.idMateria 
                     INNER JOIN Docente d ON e.idDocente = d.idDocente 
-                    INNER JOIN categoria c ON d.categoria = c.idCategoria 
+                    LEFT JOIN categoria c ON d.categoria = c.idCategoria 
                     WHERE m.idMateria = $idMateria";
 
             $sta = $mdb->prepare($sql);

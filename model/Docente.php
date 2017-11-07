@@ -119,7 +119,7 @@ class Docente{
             $mdb =  DataBase::getDb();
             $sql = "SELECT idDocente, nombre, apellido, telefono, email, d.categoria ,d.descripcion, c.descripcion AS categoria
                     FROM Docente d
-                    INNER JOIN categoria c ON d.categoria = c.idCategoria
+                    LEFT JOIN categoria c ON d.categoria = c.idCategoria
                     WHERE d.idDocente = $idDocente 
                     LIMIT 1";
             $sta = $mdb->prepare($sql);
