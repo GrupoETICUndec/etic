@@ -25,8 +25,8 @@
                 </thead>
 
                 <tbody>
-                    <tr class='clickable-row' data-href='index.php?c=docente&a=perfil&idd={{profe.idDocente}}' dir-paginate="profe in profesores | filter:busqueda | orderBy:columna:reverse | itemsPerPage:15"> 
-                        <td><img src="view/images/lupa.jpg" style="width:20px; height:20px;"></td>
+                    <tr class='clickable-row' data-href='index.php?c=docente&a=perfil&idd={{profe.idDocente}}' dir-paginate="profe in profesores | filter:busqueda | orderBy:columna:reverse | itemsPerPage:50"> 
+                        <td><a href='index.php?c=docente&a=perfil&idd={{profe.idDocente}}'><img src="view/images/lupa.jpg" style="width:20px; height:20px;"></a></td>
                         <td>{{profe.nombre}}</td>
                         <td>{{profe.apellido}}</td>
                         <td>{{profe.email}}</td>
