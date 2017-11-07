@@ -25,13 +25,14 @@
                 </thead>
 
                 <tbody>
-                    <tr dir-paginate="profe in profesores | filter:busqueda | orderBy:columna:reverse | itemsPerPage:15">
-                        <td><a ng-href="index.php?c=docente&a=perfil&idd={{profe.idDocente}}"><img src="view/images/lupa.jpg" style="width:20px; height:20px;"></a></td>
-                        <td><a ng-href="index.php?c=docente&a=perfil&idd={{profe.idDocente}}">{{profe.nombre}}</a></td>
-                        <td><a ng-href="index.php?c=docente&a=perfil&idd={{profe.idDocente}}">{{profe.apellido}}</a></td>
-                        <td><a href="index.php?c=docente&a=perfil&idd={{profe.idDocente}}">{{profe.email}}</a></td>
+                    <tr class='clickable-row' data-href='index.php?c=docente&a=perfil&idd={{profe.idDocente}}' dir-paginate="profe in profesores | filter:busqueda | orderBy:columna:reverse | itemsPerPage:15"> 
+                        <td><img src="view/images/lupa.jpg" style="width:20px; height:20px;"></td>
+                        <td>{{profe.nombre}}</td>
+                        <td>{{profe.apellido}}</td>
+                        <td>{{profe.email}}</td>
                     </tr>
                 </tbody>
+                
             </table>
     
             <div>
