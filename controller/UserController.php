@@ -10,6 +10,13 @@ class UserController
         require_once 'view/footer.php';
     }
 
+    public function login()
+    {
+        require_once 'view/header.php';
+        require_once 'view/user/login.php';
+        require_once 'view/footer.php';
+    }
+
     public function validateSession()
     {
         

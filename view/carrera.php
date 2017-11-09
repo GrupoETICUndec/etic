@@ -68,7 +68,7 @@
             
             <!--Panel 3-->
             <div class="tab-pane fade" id="panel3" role="tabpanel">
-		<?= $carrera->getPerfil() ?>
+		            <?= $carrera->getPerfil() ?>
             </div>
             <!--/.Panel 3-->
         </div>
