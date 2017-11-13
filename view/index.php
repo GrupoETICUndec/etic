@@ -8,7 +8,7 @@
     <!--First columnn-->
     <div class="col-lg-4">
         <!--Card-->
-        <a href="index.php?c=carrera&a=show&id=1">
+        <a href="index.php?c=carrera&a=show&id=1&p=panel1">
         <div class="card wow fadeIn" data-wow-delay="0.2s">
 
             <!--Card image-->
@@ -20,7 +20,7 @@
                 <h4 class="card-title">Ingeniería en Sistemas</h4>
                 <!--Text-->
                 <p class="card-text">La carrera de Ingeniería en Sistemas tiene como fin formar un Ingeniero tecnológico capacitado para desarrollar sistemas de ingeniería y tecnología...</p>
-                <a href="index.php?c=carrera&a=show&id=1" class="btn btn-info">Ver Más</a>
+                <a href="index.php?c=carrera&a=show&id=1&p=panel1" class="btn btn-info">Ver Más</a>
             </div>
 
         </div>
@@ -32,7 +32,7 @@
     <!--Second columnn-->
     <div class="col-lg-4">
         <!--Card-->
-        <a href="index.php?c=carrera&a=show&id=2">
+        <a href="index.php?c=carrera&a=show&id=2&p=panel1">
         <div class="card wow fadeIn" data-wow-delay="0.4s">
 
             <!--Card image-->
@@ -44,7 +44,7 @@
                 <h4 class="card-title">Licenciatura en Sistemas</h4>
                 <!--Text-->
                 <p class="card-text">La carrera de Licenciatura en Sistemas tiene como fin formar profesionales con un perfil que responda a las exigencias del mercado y de las empresas...</p>
-                <a href="index.php?c=carrera&a=show&id=2" class="btn btn-info">Ver Más</a>
+                <a href="index.php?c=carrera&a=show&id=2p=panel1" class="btn btn-info">Ver Más</a>
             </div>
 
         </div>
@@ -57,7 +57,7 @@
     <!--Third columnn-->
     <div class="col-lg-4">
         <!--Card-->
-        <a href="index.php?c=carrera&a=show&id=3">
+        <a href="index.php?c=carrera&a=show&id=3&p=panel1">
 
         <div class="card wow fadeIn" data-wow-delay="0.6s">
 
@@ -71,7 +71,7 @@
                 <h4 class="card-title">TUDAW</h4>
                 <!--Text-->
                 <p class="card-text">Esta carrera tiene como objetivo general formar profesionales en Informática capaces de trabajar en estrecha relación con otros profesionales informáticos y de distintas disciplinas...</p>
-                <a href="index.php?c=carrera&a=show&id=3" class="btn btn-info">Ver Más</a>
+                <a href="index.php?c=carrera&a=show&id=3p=panel1" class="btn btn-info">Ver Más</a>
             </div>
 
         </div>

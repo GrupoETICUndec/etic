@@ -44,9 +44,9 @@
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carreras 
                             </a>
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="index.php?c=carrera&a=show&id=2">Licenciatura en Sistemas</a>
-                                <a class="dropdown-item" href="index.php?c=carrera&a=show&id=1">Ingeniería en Sistemas</a>
-                                <a class="dropdown-item" href="index.php?c=carrera&a=show&id=3">TUDAW</a>
+                                <a class="dropdown-item" href="index.php?c=carrera&a=show&id=2&p=panel1">Licenciatura en Sistemas</a>
+                                <a class="dropdown-item" href="index.php?c=carrera&a=show&id=1&p=panel1">Ingeniería en Sistemas</a>
+                                <a class="dropdown-item" href="index.php?c=carrera&a=show&id=3&p=panel1">TUDAW</a>
                             </div>
                         </li>
                         <li class="nav-item">

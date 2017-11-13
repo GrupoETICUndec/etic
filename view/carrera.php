@@ -7,27 +7,27 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs nav-justified">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Presentación</a>
+                <a class="nav-link <?php if ($_GET['p']=='panel1') echo 'active'; else echo "";?>" data-toggle="tab" href="#panel1" role="tab">Presentación</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Plan de Estudios</a>
-            </li>
+                <a class="nav-link <?php if ($_GET['p']=='panel2') echo 'active'; else echo "";?>" data-toggle="tab" href="#panel2" role="tab">Plan de Estudios</a>
+            </li> 
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">Perfil Egresado</a>
+                <a class="nav-link <?php if ($_GET['p']=='panel3') echo 'active'; else echo "";?>" data-toggle="tab" href="#panel3" role="tab">Perfil Egresado</a>
             </li>
         </ul>
 
         <!-- Tab panels -->
         <div class="container tab-content card">
             <!--Panel 1-->
-            <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+            <div class="tab-pane fade <?php if ($_GET['p']=='panel1') echo 'in show active'; else echo "";?>" id="panel1" role="tabpanel">
 	    <?= $carrera->getDescripcion() ?>
             </div>
             <!--/.Panel 1-->
 
 
             <!--Panel 2-->
-            <div class="tab-pane fade" id="panel2" role="tabpanel" ng-app="universidadApp" ng-controller="<?= $ngController ?>">    
+            <div class="tab-pane fade <?php if ($_GET['p']=='panel2') echo 'in show active'; else echo "";?>" id="panel2" role="tabpanel" ng-app="universidadApp" ng-controller="<?= $ngController ?>">    
                 <div class="row">
                     <h2 style="text-align: center; "><a href="<?= $carrera->getPlanPdf() ?>" target="blank">Descargar plan</a></h2>
                     <input type="text" ng-model="busqueda" class="form-control" placeholder="Buscar...">
@@ -50,7 +50,7 @@
 
                     <tbody>
                     <tr ng-repeat="mat in materias | filter:busqueda ">
-                        <td ><a href="index.php?c=materia&a=materia&cod={{mat.idMateria}}"><img src="view/images/lupa.png" style="width:20px; height:20px;"></a></td>
+                        <td ><i class="fa fa-search-plus" aria-hidden="true"></td>
                         <td >{{mat.codigo}}</td>
                         <td><a href="index.php?c=materia&a=materia&cod={{mat.idMateria}}">{{mat.asignatura}}</a></td>
                         <td>{{mat.anio}}</td>
@@ -67,7 +67,7 @@
 
             
             <!--Panel 3-->
-            <div class="tab-pane fade" id="panel3" role="tabpanel">
+            <div class="tab-pane fade <?php if ($_GET['p']=='panel3') echo 'in show active'; else echo "";?>" id="panel3" role="tabpanel">
 		            <?= $carrera->getPerfil() ?>
             </div>
             <!--/.Panel 3-->

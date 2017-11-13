@@ -3,8 +3,14 @@
         <!--Main layout-->
         <div ng-app="universidadApp" ng-controller="matCtrl">
         <!-- Nav tabs -->
+
+        <?php
+            $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+             echo "<a href='".$url."&p=panel2'><i class=\"fa fa-arrow-left\"> Volver</i></a>";
+        ?>
+    
         <ul class="nav nav-tabs nav-justified">
-            
+
             <li class="nav-item">
                 <h1>Asignatura</h1>
             </li>
