@@ -4,17 +4,21 @@
 
   app.controller
   ('listadoCtrl', 
-    ['$scope','$http',
-      function ($scope, $http) 
+    ['$scope','$http', '$log', '$window',
+      function ($scope, $http, $log, $window) 
       {
           $scope.profesores = {};
+
+          $scope.ClickMee = function (profe) {
+            var url = "http://" + $window.location.host + "/etic/index.php?c=docente&a=perfil&idd="+profe.idDocente;
+            $window.location.href = url;
+          };
           
-          
-            $http.get('index.php?c=docente&a=json').success
-            (function(data) 
-            {
-              $scope.profesores=data;
-            })
+          $http.get('index.php?c=docente&a=json').success
+          (function(data) 
+          {
+            $scope.profesores=data;
+          });
       }
   ]);
 
