@@ -50,7 +50,7 @@
 
                     <tbody>
                     <tr ng-repeat="mat in materias | filter:busqueda ">
-                        <td ><a ng-href=""><img src="view/images/lupa.jpg" style="width:20px; height:20px;"></a></td>
+                        <td ><a href="index.php?c=materia&a=materia&cod={{mat.idMateria}}"><img src="view/images/lupa.png" style="width:20px; height:20px;"></a></td>
                         <td >{{mat.codigo}}</td>
                         <td><a href="index.php?c=materia&a=materia&cod={{mat.idMateria}}">{{mat.asignatura}}</a></td>
                         <td>{{mat.anio}}</td>
